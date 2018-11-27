@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -40,6 +41,7 @@ public class MainActivity extends BaseActivity {
             return true;
         }
     });
+    private TextView mTvBack;
 
     @Override
     protected int getLayoutId() {
@@ -53,6 +55,7 @@ public class MainActivity extends BaseActivity {
         setTranslucentStatusBar(toolbar);
         mTabLayout = findViewById(R.id.tab_layout);
         mVpFragment = findViewById(R.id.vp_fragment);
+        mTvBack = findViewById(R.id.tv_back);
 
     }
 
@@ -197,7 +200,12 @@ public class MainActivity extends BaseActivity {
 
             }
         });
-
+        mTvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
