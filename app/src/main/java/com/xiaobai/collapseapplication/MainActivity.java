@@ -204,6 +204,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         unRegisterEvent();
+        mPagerHandler.removeMessages(HANDLER_WHAT);
+        mPagerHandler.removeCallbacksAndMessages(null);
         super.onDestroy();
     }
 
@@ -214,4 +216,6 @@ public class MainActivity extends BaseActivity {
 
         public boolean isSendMessage;
     }
+
+
 }
